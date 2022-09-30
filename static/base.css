@@ -1,0 +1,128 @@
+/*************** 
+ * BASE STYLES *
+ ***************/
+
+/* Variables */
+
+
+
+:root {
+  --blue: #2d46b9;
+  --white: #ffffff;
+  --black: #000000;
+  --green1: #1ed760;
+  --green2: #1db954;
+  --gray1: #c1c3c6;
+  --gray2: #919496;
+  --gray3: #616467;
+  --hero-bg-color: #ffc362;
+  --hero-terms-link: #efefef;
+}
+
+/* Overwrite browser defaults */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+  background-color: black;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+input{
+  width: 602px;
+  height: 98px;
+  background: grey;
+  border-radius: 12px;
+  border: white;
+  text-align: center;
+
+
+}
+::placeholder{
+  color:white;
+  border: rgb(117, 115, 115);
+  background: grey;
+}
+
+.main{
+  text-align: center;
+   font-size: 40px;
+  color: aliceblue;
+  margin-top: 40px;
+
+}
+
+h2{
+  color: white;
+  text-align: center;
+  margin: 20px;
+}
+#artist{
+  margin-top: 50px;
+  margin-left: 420px;
+  max-width: 390px;
+  max-height: 500px;
+  border-radius: 50%;
+}
+.center{
+  text-align: center;
+  color: rgb(82, 235, 82);
+  font-size: 50px;
+  margin-top: 40px;
+}
+#acc{
+  color: white;
+}
+
+
+.right{
+  display: flex;
+  float: right;
+  text-align: right;
+  margin-left: 840px;
+  padding-top: 10px;
+}
+.right img{
+  border-radius: 100%;
+  max-width: 70px;
+  height: 60px;
+  padding-top: 10px;
+  
+}
+.right h4{
+  font-size: 26px;
+  padding-top: 10px;
+  padding-left: 20px; 
+  color: white;
+}
+
+
+a h4{
+  display: flex;
+  text-decoration: none;
+  color: white;
+  padding-left: 50px;
+  padding-top: 30px;
+  font-size: 15px;
+}

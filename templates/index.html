@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Music for everyone - Spotify</title>
+    <link rel="icon" href="images/favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../static/base.css" />
+    <link rel="stylesheet" href="../static/header.css" />
+    <link rel="stylesheet" href="../static/hero.css" />
+    <link rel="stylesheet" href="../static/albums.css" />
+    <link rel="stylesheet" href="../static/footer.css" />
+    <link rel="stylesheet" href="../static/media-queries.css" />
+  </head>
+  <body>
+
+    {%if data %} 
+
+    <header>
+      <div class="header-container">
+        <div class="header-logo">
+          <img src="../static/spotify-logo.svg" />
+          
+        </div>
+        <div class="right">  <img class="profile-icon" src="{{aimg}}">
+          <a href="http://127.0.0.1:8000"> <h4>{{account}}</h4></div></a></div>
+      
+      </div>
+      
+
+
+    
+    {%else%}
+   
+      
+   
+    <header>
+      <div class="header-container">
+        <div class="header-logo">
+          <img src="../static/spotify-logo.svg" />
+          
+        </div>
+        <!-- This is the menu that will be shown on mobile devices-->
+        <nav class="nav-mobile">
+          <!-- Profile -->
+          <div >
+            
+            
+          </div>
+          <!-- Hamburger menu -->
+          <input type="checkbox" class="toggler" />
+          <div class="hamburger-menu"><div></div></div>
+          <div class="menu">
+            <div class="background-overlay"></div>
+            <div class="menu-overlay">
+              <ul>
+                <li><a href="#">Premium</a></li>
+                <li><a href="#">Help</a></li>
+                <li><a href="#">Download</a></li>
+                <li role="separator"></li>
+                <li><a href="#">{{account}}</a></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+              <div class="menu-overlay-logo">
+                <img src="../static/spotify-logo.svg" />
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- This is the menu that will be shown on Desktop -->
+        <nav class="nav-desktop">
+          <!-- Site menu -->
+         
+          <!-- Profile menu -->
+          <div class="profile-container">
+            <input type="checkbox" class="dropdown-menu-toggler" />
+          </div>
+            <div class="dropdown-menu">
+              <ul>
+                <li><a href="#">{{account}}</a></li>
+                <li><a href="#">Log out</a></li>
+              </ul>
+            </div>
+            <div class="profile">
+              <svg viewBox="0 0 1024input{
+                width: 202px;
+                height: 38px;
+                border-radius: 8px;
+                background: transparent;
+                color: white;
+            }
+            ::placeholder{
+                margin-left :15px;
+                color: white; 
+                font-size: medium;
+            
+            <ul>
+              <li>Profile</li>
+              <li>
+                <svg viewBox="0 0 1024 1024" class="profile-arrow">
+                  <path
+                    d="M476.455 806.696L95.291 425.532Q80.67 410.911 80.67 390.239t14.621-34.789 35.293-14.117 34.789 14.117L508.219 698.8l349.4-349.4q14.621-14.117 35.293-14.117t34.789 14.117 14.117 34.789-14.117 34.789L546.537 800.142q-19.159 19.159-38.318 19.159t-31.764-12.605z"
+                  ></path>
+                </svg>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    {%endif%}
+
+    <form class="main" action="{{url_for('index')}}" method='POST'> <input type="search" placeholder="   what do you want to listen to?"  name="ram">
+            
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  {%if data %}
+    
+    <!-- ALBUMS -->
+    <section class="albums">
+      <h1 class="center"> Artist</h1>
+      <div class="album" id="artist">
+        <img src="{{ima}}" />
+        <div class="album-info">
+          <h2>{{name}}</h2>
+          <a href="{{final}}">Albums</a>
+        </div>
+      </div>
+      <div class="albums-container">
+        <h1 class="center"> Songs</h1>
+        <div class="albums-cards-container">
+          <!-- Travis Scott -->
+          <!-- <p style="color: red;">{{user_track_albums['items'][0]}}</p> -->
+          <!-- <p style="color: red;">{{user_track_albums['items'][]}}</p> -->
+          {% for i in user_track_albums['items'] %}
+          <div class="album">
+            <img src="{{i['images'][0]['url']}}" />
+            <div class="album-info">
+              <h2>{{i['name']}}</h2>
+              <h4>{{i['release_date']}}</h4>
+              <a href="{{i['external_urls']['spotify']}}">PLAY NOW</a>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </section>
+    {%else%}
+    <h2> Please Type again </h2>
+      
+      {%endif%}
+  
+    
+  </body>
+  <script src="../static/script.js"></script>
+</html>
